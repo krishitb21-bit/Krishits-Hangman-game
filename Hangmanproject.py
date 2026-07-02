@@ -111,13 +111,17 @@ while '_' in dashes:
     elif user_guess not in random_word:
         print('Incorrect guess, Try again!')
         assembly = assembly + 1
-        if assembly < 7:
+        if assembly in hangman_art:
             print(hangman_art[assembly])
-        else:
+        if assembly == 7:
             print('You lost')
-print()
-print("You guessed the word!")
+            break
 
+# Outside the loop now
+if '_' not in dashes:
+    print("\n🏆 You guessed the word! You won!")
+else:
+    print(f"\n💀 Better luck next time! The word was: {''.join(random_word)}")
 
 
 
